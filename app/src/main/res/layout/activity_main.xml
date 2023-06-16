@@ -23,7 +23,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="250dp"
         android:layout_marginBottom="192dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,6 +38,8 @@
             android:layout_weight="1"
             android:textStyle="bold"
             android:textSize="16sp"
+            android:layout_marginBottom="12sp"
+            android:background="@color/teal_200"
             android:text="Add Student Record" />
 
         <Button
@@ -45,8 +47,10 @@
             android:layout_width="match_parent"
             android:layout_height="25dp"
             android:layout_weight="1"
+            android:background="@color/teal_200"
             android:textStyle="bold"
             android:textSize="16sp"
+            android:layout_marginBottom="12sp"
             android:text="View Student Record" />
 
         <Button
@@ -54,6 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="25dp"
             android:layout_weight="1"
+            android:background="@color/teal_200"
             android:text="GitHub Repository"
             android:textSize="16sp"
             android:textStyle="bold" />

@@ -6,4 +6,138 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity2">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Add Student Details"
+        android:textSize="29sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="241dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/des"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Enter Roll-No (unique)"
+        android:inputType="textMultiLine"
+        android:padding="4sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine2"
+        android:layout_width="241dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/des"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:padding="4sp"
+        android:hint="Enter name"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine3"
+        android:layout_width="241dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/des"
+        android:ems="10"
+        android:hint="Enter Age"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:padding="4sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine4"
+        android:layout_width="241dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/des"
+        android:ems="10"
+        android:hint="Enter Class"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        android:padding="4sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine3"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine5"
+        android:layout_width="241dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/des"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Enter Sabaq Surah"
+        android:inputType="textMultiLine"
+        android:padding="4sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine4"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine4" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine6"
+        android:layout_width="241dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/des"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Enter Sabaq Total Ayat"
+        android:inputType="textMultiLine"
+        android:padding="4sp"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine5"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine5" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Add"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/teal_200"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine7" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine7"
+        android:layout_width="241dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="24dp"
+        android:padding="4sp"
+        android:ems="10"
+        android:hint="Enter Parah"
+        android:background="@drawable/des"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine6"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine6"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine6" />
 </androidx.constraintlayout.widget.ConstraintLayout>
