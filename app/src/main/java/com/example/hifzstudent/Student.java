@@ -1,22 +1,16 @@
 package com.example.hifzstudent;
 
 public class Student {
-    private String name;
     private String rollNo;
-    private boolean isEnroll;
+    private String name;
+    private int age;
+    private String clas;
 
-    public Student(String name, String rollNo, boolean isEnroll) {
-        this.name = name;
+    public Student(String rollNo, String name, int age, String clas) {
         this.rollNo = rollNo;
-        this.isEnroll = isEnroll;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
         this.name = name;
+        this.age = age;
+        this.clas = clas;
     }
 
     public String getRollNo() {
@@ -27,17 +21,27 @@ public class Student {
         this.rollNo = rollNo;
     }
 
-    public boolean isEnroll() {
-        return isEnroll;
+    public String getName() {
+        return name;
     }
 
-    public void setEnroll(boolean enroll) {
-        isEnroll = enroll;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Student [name=" + name + ", rollNo=" + rollNo + ", isEnroll=" + isEnroll + "]";
+    public int getAge() {
+        return age;
     }
 
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getClas() {
+        return clas;
+    }
+
+    public void setClas(String clas) {
+        this.clas = clas;
+    }
 }
