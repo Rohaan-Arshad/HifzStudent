@@ -28,7 +28,7 @@ public class MainActivity3 extends AppCompatActivity {
         dataHolder = dr.getAllStudents();
 
 
-        AdapterRecycler ad= new AdapterRecycler(dataHolder);
+        AdapterRecycler ad= new AdapterRecycler(dataHolder,getApplicationContext());
         rc.setAdapter(ad);
 
     }

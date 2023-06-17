@@ -1,4 +1,7 @@
 package com.example.hifzstudent;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.ColorSpace;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -14,9 +17,10 @@ public class AdapterRecycler extends RecyclerView.Adapter<AdapterRecycler.MyView
 {
 
     ArrayList<Student> data;
-
-    public AdapterRecycler(ArrayList<Student> data) {
+    Context c;
+    public AdapterRecycler(ArrayList<Student> data,Context c) {
         this.data = data;
+        this.c=c;
     }
 
     @NonNull
@@ -30,9 +34,22 @@ public class AdapterRecycler extends RecyclerView.Adapter<AdapterRecycler.MyView
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
+        final Student temp = data.get(position);
+
         holder.roll.setText(data.get(position).getRollNo());
         holder.name.setText(data.get(position).getName());
-        holder.age.setText(data.get(position).getClas()+" " +data.get(position).getAge());
+        holder.age.setText(data.get(position).getClas()+"   " +data.get(position).getAge());
+
+        holder.roll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ig =new Intent(c,MainActivity4.class);
+                ig.putExtra("rol",temp.getRollNo());
+                ig.putExtra("nam",temp.getName());
+                ig.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                c.startActivity(ig);
+            }
+        });
     }
 
     @Override
