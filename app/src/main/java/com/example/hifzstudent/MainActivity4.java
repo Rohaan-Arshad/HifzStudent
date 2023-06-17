@@ -40,7 +40,7 @@ public class MainActivity4 extends AppCompatActivity {
             stringBuilder.append("Sabaq Parah: ").append(record.getSabaq_parah()).append("\n");
             stringBuilder.append("Sabqi Parah: ").append(record.getSabqi_parah()).append("\n");
             stringBuilder.append("Manzil Parah: ").append(record.getManzil_parah()).append("\n");
-            stringBuilder.append("------------------------").append("\n"); // Add a line separator
+            stringBuilder.append("----------------------------------------").append("\n"); // Add a line separator
         }
 
         set.setText(stringBuilder.toString());
