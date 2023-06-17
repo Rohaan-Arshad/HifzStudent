@@ -40,13 +40,29 @@ public class AdapterRecycler extends RecyclerView.Adapter<AdapterRecycler.MyView
         holder.name.setText(data.get(position).getName());
         holder.age.setText(data.get(position).getClas()+"   " +data.get(position).getAge());
 
+        Intent ig =new Intent(c,MainActivity4.class);
+        ig.putExtra("rol",temp.getRollNo());
+        ig.putExtra("nam",temp.getName());
+        ig.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
         holder.roll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ig =new Intent(c,MainActivity4.class);
-                ig.putExtra("rol",temp.getRollNo());
-                ig.putExtra("nam",temp.getName());
-                ig.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                c.startActivity(ig);
+            }
+        });
+        holder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                c.startActivity(ig);
+            }
+        });
+        holder.age.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
                 c.startActivity(ig);
             }
         });

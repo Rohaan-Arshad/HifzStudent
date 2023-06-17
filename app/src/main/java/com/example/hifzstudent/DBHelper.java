@@ -154,40 +154,36 @@ public class DBHelper extends SQLiteOpenHelper {
         return studentList;
     }
 
+    public ArrayList<Record>getRecords(String no)
+    {
+        ArrayList<Record> recordList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        String query = "SELECT * FROM " + TABLE_NAME1 + " WHERE " + COLUMN_ROLLNO + " = '" + no + "'";
+        Cursor cursor = db.rawQuery(query,null);
 
+        int rollno =  cursor.getColumnIndex(COLUMN_ROLLNO);
+        int ss =  cursor.getColumnIndex(COLUMN_SABAQ_SURAH);
+        int sta =  cursor.getColumnIndex(COLUMN_SABAQ_TOTAL_AYAT);
+        int ps =  cursor.getColumnIndex(COLUMN_PARA_SABAQ);
+        int sp =  cursor.getColumnIndex(COLUMN_SABQI_PARAH);
+        int mp =  cursor.getColumnIndex(COLUMN_MANZIL_PARAH);
+        int d =  cursor.getColumnIndex(COLUMN_DATE);
 
-//    public List<Student> selectAllStudents() {
-//        List<Student> students = new ArrayList<>();
-//
-//        String sql = "SELECT * FROM " + TABLE_NAME;
-//
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        Cursor cursor = db.rawQuery(sql, null);
-//
-//        /*
-//        * if (cursorCourses.moveToFirst()) {
-//            do {
-//                studentArrayList.add(new StudentModel(cursorCourses.getString(1),
-//                      cursorCourses.getInt(2),
-//                        cursorCourses.getInt(3) == 1 ? true : false));
-//            } while (cursorCourses.moveToNext());
-//        }
-//        * */
-//
-//        if (cursor.moveToFirst()) {
-//            do {
-//                @SuppressLint("Range") int id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID));
-//                @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex(COLUMN_NAME));
-//                @SuppressLint("Range")  String rollNo = cursor.getString(cursor.getColumnIndex(COLUMN_ROLLNO));
-//                @SuppressLint("Range") boolean isEnroll = cursor.getInt(cursor.getColumnIndex(COLUMN_ENROLL))>0;
-//                students.add(new Student(name, rollNo, isEnroll));
-//            } while (cursor.moveToNext());
-//        }
-//
-//        cursor.close();
-//        db.close();
-//
-//        return students;
-//    }
+        while (cursor.moveToNext()) {
+            String ro = cursor.getString(rollno);
+            String sura_s = cursor.getString(ss);
+            int sabaq_total_ayat = cursor.getInt(sta);
+            int para_sbq = cursor.getInt(ps);
+            int  sbqi_para= cursor.getInt(sp);
+            int mnzil_para = cursor.getInt(mp);
+            String dt = cursor.getString(d);
+
+            Record student = new Record(ro, sura_s, sabaq_total_ayat, para_sbq, sbqi_para,mnzil_para , dt);
+            recordList.add(student);
+        }
+        cursor.close();
+        return recordList;
+    }
+
 }
