@@ -15,31 +15,55 @@ public class DBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "students.db";
     private static final String TABLE_NAME = "students";
+    private static final String TABLE_NAME1 = "record";
 
-    private static final String COLUMN_ID = "id";
-    private static final String COLUMN_NAME = "name";
+
     private static final String COLUMN_ROLLNO = "roll_no";
-    private static final String COLUMN_ENROLL = "is_enroll";
+    private static final String COLUMN_NAME = "name";
+    private static final String COLUMN_AGE = "age";
+    private static final String COLUMN_CLASS = "class";
+    private static final String COLUMN_SABAQ_SURAH = "sabaq_surah";
+    private static final String COLUMN_SABAQ_TOTAL_AYAT = "sabaq_ayat";
+    private static final String COLUMN_PARA_SABAQ = "para_sabaq";
+    private static final String COLUMN_SABQI_PARAH = "sabqi_parah";
+    private static final String COLUMN_MANZIL_PARAH = "manzil_parah";
+    private static final String COLUMN_DATE = "date";
+
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
 
-    @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "("
-                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+        String table1 = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + "("
+                + COLUMN_ROLLNO + " TEXT PRIMARY KEY "
                 + COLUMN_NAME + " TEXT,"
-                + COLUMN_ROLLNO + " TEXT,"
-                + COLUMN_ENROLL + " INTEGER"
+                + COLUMN_AGE + " INTEGER,"
+                + COLUMN_CLASS + " TEXT"
                 + ")";
-        db.execSQL(sql);
+        db.execSQL(table1);
+
+        String table2 = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME1 + "("
+                + COLUMN_ROLLNO + " TEXT,"
+                + COLUMN_SABAQ_SURAH + " TEXT,"
+                + COLUMN_SABAQ_TOTAL_AYAT + " INTEGER,"
+                + COLUMN_PARA_SABAQ + " INTEGER,"
+                + COLUMN_SABQI_PARAH + " INTEGER,"
+                + COLUMN_MANZIL_PARAH + " INTEGER,"
+                + COLUMN_DATE + " TEXT,"
+                + "FOREIGN KEY(" + COLUMN_ROLLNO + ") REFERENCES " + TABLE_NAME + "(" + COLUMN_ROLLNO + ")"
+                + ")";
+        db.execSQL(table2);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sql = "DROP TABLE IF EXISTS " + TABLE_NAME;
-        db.execSQL(sql);
+        String sql1 = "DROP TABLE IF EXISTS " + TABLE_NAME;
+        db.execSQL(sql1);
+
+        String sql2 = "DROP TABLE IF EXISTS " + TABLE_NAME1;
+        db.execSQL(sql2);
+
         onCreate(db);
     }
 
@@ -55,22 +79,22 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateStudent(Student student) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME, student.getName());
-        values.put(COLUMN_ROLLNO, student.getRollNo());
-        values.put(COLUMN_ENROLL, student.isEnroll());
-
-        db.update(TABLE_NAME, values, COLUMN_ROLLNO + " = ?", new String[] {student.getRollNo()});
-        db.close();
-    }
-
-    public void deleteStudent(String rollNo) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME, COLUMN_ROLLNO + " = ?", new String[] {rollNo});
-        db.close();
-    }
+//    public void updateStudent(Student student) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        ContentValues values = new ContentValues();
+//        values.put(COLUMN_NAME, student.getName());
+//        values.put(COLUMN_ROLLNO, student.getRollNo());
+//        values.put(COLUMN_ENROLL, student.isEnroll());
+//
+//        db.update(TABLE_NAME, values, COLUMN_ROLLNO + " = ?", new String[] {student.getRollNo()});
+//        db.close();
+//    }
+//
+//    public void deleteStudent(String rollNo) {
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        db.delete(TABLE_NAME, COLUMN_ROLLNO + " = ?", new String[] {rollNo});
+//        db.close();
+//    }
 
 
     public List<Student> selectAllStudents() {
