@@ -28,5 +28,8 @@ public class MainActivity3 extends AppCompatActivity {
         dataHolder = dr.getAllStudents();
 
 
+        AdapterRecycler ad= new AdapterRecycler(dataHolder);
+        rc.setAdapter(ad);
+
     }
 }
