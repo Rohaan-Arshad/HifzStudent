@@ -3,6 +3,7 @@ package com.example.hifzstudent;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,25 +34,32 @@ public class MainActivity2 extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (TextUtils.isEmpty(roll.getText().toString()) ||
+                        TextUtils.isEmpty(name.getText().toString()) ||
+                        TextUtils.isEmpty(age.getText().toString()) ||
+                        TextUtils.isEmpty(cla.getText().toString()) ||
+                        TextUtils.isEmpty(sabaq_surah.getText().toString()) ||
+                        TextUtils.isEmpty(sabaq_ayat.getText().toString()) ||
+                        TextUtils.isEmpty(sabaq_parah.getText().toString()) ||
+                        TextUtils.isEmpty(sabqi_parah.getText().toString()) ||
+                        TextUtils.isEmpty(manzil_parah.getText().toString()) ||
+                        TextUtils.isEmpty(date.getText().toString())) {
+                    Toast.makeText(MainActivity2.this, "Enter all fields!", Toast.LENGTH_SHORT).show();
+                } else {
+                    DBHelper dt = new DBHelper(MainActivity2.this);
+                    Student st = new Student(roll.getText().toString(), name.getText().toString(), Integer.parseInt(age.getText().toString()), cla.getText().toString());
+                    Record re = new Record(roll.getText().toString(), sabaq_surah.getText().toString(), Integer.parseInt(sabaq_ayat.getText().toString()), Integer.parseInt(sabaq_parah.getText().toString()), Integer.parseInt(sabqi_parah.getText().toString()), Integer.parseInt(manzil_parah.getText().toString()), date.getText().toString());
 
-                DBHelper dt = new DBHelper(MainActivity2.this);
-                Student st = new Student(roll.getText().toString(),name.getText().toString(),Integer.parseInt(age.getText().toString()),cla.getText().toString());
-
-                Record re = new Record(roll.getText().toString(),sabaq_surah.getText().toString(),Integer.parseInt(sabaq_ayat.getText().toString()),Integer.parseInt(sabaq_parah.getText().toString()),Integer.parseInt(sabqi_parah.getText().toString()),Integer.parseInt(manzil_parah.getText().toString()),date.getText().toString());
-
-                if (dt.isIdExists(roll.getText().toString())) {
-                    dt.insertRecord_ID(re);
-                    Toast.makeText(MainActivity2.this, "Student Record Appended !", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    int i = dt.insertStudent(st,re);
-                    if(i==1)
-                    {
-                        Toast.makeText(MainActivity2.this, "Student Inserted !", Toast.LENGTH_SHORT).show();
+                    if (dt.isIdExists(roll.getText().toString())) {
+                        dt.insertRecord_ID(re);
+                        Toast.makeText(MainActivity2.this, "Student Record Appended!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        int i = dt.insertStudent(st, re);
+                        if (i == 1) {
+                            Toast.makeText(MainActivity2.this, "Student Inserted!", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 }
-
             }
         });
 

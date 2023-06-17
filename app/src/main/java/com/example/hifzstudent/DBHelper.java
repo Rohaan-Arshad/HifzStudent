@@ -128,22 +128,7 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-//    public void updateStudent(Student student) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put(COLUMN_NAME, student.getName());
-//        values.put(COLUMN_ROLLNO, student.getRollNo());
-//        values.put(COLUMN_ENROLL, student.isEnroll());
-//
-//        db.update(TABLE_NAME, values, COLUMN_ROLLNO + " = ?", new String[] {student.getRollNo()});
-//        db.close();
-//    }
-//
-//    public void deleteStudent(String rollNo) {
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        db.delete(TABLE_NAME, COLUMN_ROLLNO + " = ?", new String[] {rollNo});
-//        db.close();
-//    }
+
 
 
 //    public List<Student> selectAllStudents() {
