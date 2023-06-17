@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         view= findViewById(R.id.button2);
         git= findViewById(R.id.button3);
 
+        // write
         Intent i = new Intent(this,MainActivity2.class);
 
         add.setOnClickListener(new View.OnClickListener() {
@@ -29,6 +30,16 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        // read
+        Intent read = new Intent(this,MainActivity3.class);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(read);
+            }
+        });
+
 
         //  git coede
 //        Intent gi = new Intent(this,MainActivity2.class);

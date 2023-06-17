@@ -128,6 +128,32 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public List<Student> getAllStudents() {
+        List<Student> studentList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE_NAME;
+        Cursor cursor = db.rawQuery(query, null);
+
+        int rollNoIndex = cursor.getColumnIndex(COLUMN_ROLLNO);
+        int nameIndex = cursor.getColumnIndex(COLUMN_NAME);
+        int ageIndex = cursor.getColumnIndex(COLUMN_AGE);
+        int classIndex = cursor.getColumnIndex(COLUMN_CLASS);
+
+        while (cursor.moveToNext()) {
+            String rollNo = cursor.getString(rollNoIndex);
+            String name = cursor.getString(nameIndex);
+            int age = cursor.getInt(ageIndex);
+            String className = cursor.getString(classIndex);
+
+            Student student = new Student(rollNo, name, age, className);
+            studentList.add(student);
+        }
+
+        cursor.close();
+        return studentList;
+    }
+
 
 
 
