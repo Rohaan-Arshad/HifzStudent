@@ -128,8 +128,8 @@ public class DBHelper extends SQLiteOpenHelper {
         }
     }
 
-    public List<Student> getAllStudents() {
-        List<Student> studentList = new ArrayList<>();
+    public ArrayList<Student> getAllStudents() {
+        ArrayList<Student> studentList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME;
