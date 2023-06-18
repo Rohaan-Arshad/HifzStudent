@@ -22,6 +22,11 @@ public class AdapterRecycler extends RecyclerView.Adapter<AdapterRecycler.MyView
         this.data = data;
         this.c=c;
     }
+//    public void SetFilterList(ArrayList<Student>filterList)
+//    {
+//        this.data=filterList;
+//        notifyDataSetChanged();
+//    }
 
     @NonNull
     @Override
@@ -71,6 +76,12 @@ public class AdapterRecycler extends RecyclerView.Adapter<AdapterRecycler.MyView
     @Override
     public int getItemCount() {
         return data.size();
+    }
+
+
+    public void setFilterList(ArrayList<Student> filteredList) {
+        this.data=filteredList;
+        notifyDataSetChanged();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder

@@ -10,12 +10,23 @@
         android:id="@+id/recycler"
         android:layout_width="409dp"
         android:layout_height="369dp"
-        android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="256dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/des"
+        android:queryHint="Search Here"
+        app:iconifiedByDefault="false"
+        app:layout_constraintEnd_toStartOf="@+id/recycler"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
