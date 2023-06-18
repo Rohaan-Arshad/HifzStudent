@@ -4,12 +4,12 @@ public class Record {
     private String rollNo;
     private String sabaq_surah;
     private int sabaq_parah;
-    private int sabaq_ayat;
+    private String sabaq_ayat;
     private int sabqi_parah;
     private int manzil_parah;
     private String date;
 
-    public Record(String rollNo, String sabaq_surah, int sabaq_parah, int sabaq_ayat, int sabqi_parah, int manzil_parah, String date) {
+    public Record(String rollNo, String sabaq_surah, int sabaq_parah, String sabaq_ayat, int sabqi_parah, int manzil_parah, String date) {
         this.rollNo = rollNo;
         this.sabaq_surah = sabaq_surah;
         this.sabaq_parah = sabaq_parah;
@@ -43,11 +43,11 @@ public class Record {
         this.sabaq_parah = sabaq_parah;
     }
 
-    public int getSabaq_ayat() {
+    public String getSabaq_ayat() {
         return sabaq_ayat;
     }
 
-    public void setSabaq_ayat(int sabaq_ayat) {
+    public void setSabaq_ayat(String sabaq_ayat) {
         this.sabaq_ayat = sabaq_ayat;
     }
 

@@ -48,7 +48,7 @@ public class MainActivity2 extends AppCompatActivity {
                 } else {
                     DBHelper dt = new DBHelper(MainActivity2.this);
                     Student st = new Student(roll.getText().toString(), name.getText().toString(), Integer.parseInt(age.getText().toString()), cla.getText().toString());
-                    Record re = new Record(roll.getText().toString(), sabaq_surah.getText().toString(), Integer.parseInt(sabaq_ayat.getText().toString()), Integer.parseInt(sabaq_parah.getText().toString()), Integer.parseInt(sabqi_parah.getText().toString()), Integer.parseInt(manzil_parah.getText().toString()), date.getText().toString());
+                    Record re = new Record(roll.getText().toString(), sabaq_surah.getText().toString(), Integer.parseInt(sabaq_parah.getText().toString()), sabaq_ayat.getText().toString(), Integer.parseInt(sabqi_parah.getText().toString()), Integer.parseInt(manzil_parah.getText().toString()), date.getText().toString());
 
                     if (dt.isIdExists(roll.getText().toString())) {
                         dt.insertRecord_ID(re);

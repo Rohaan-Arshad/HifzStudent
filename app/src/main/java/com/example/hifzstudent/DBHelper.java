@@ -47,7 +47,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String table2 = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME1 + "("
                 + COLUMN_ROLLNO + " TEXT,"
                 + COLUMN_SABAQ_SURAH + " TEXT,"
-                + COLUMN_SABAQ_TOTAL_AYAT + " INTEGER,"
+                + COLUMN_SABAQ_TOTAL_AYAT + " TEXT,"
                 + COLUMN_PARA_SABAQ + " INTEGER,"
                 + COLUMN_SABQI_PARAH + " INTEGER,"
                 + COLUMN_MANZIL_PARAH + " INTEGER,"
@@ -173,13 +173,13 @@ public class DBHelper extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             String ro = cursor.getString(rollno);
             String sura_s = cursor.getString(ss);
-            int sabaq_total_ayat = cursor.getInt(sta);
+            String sabaq_total_ayat = cursor.getString(sta);
             int para_sbq = cursor.getInt(ps);
             int  sbqi_para= cursor.getInt(sp);
             int mnzil_para = cursor.getInt(mp);
             String dt = cursor.getString(d);
 
-            Record student = new Record(ro, sura_s, sabaq_total_ayat, para_sbq, sbqi_para,mnzil_para , dt);
+            Record student = new Record(ro, sura_s, para_sbq, sabaq_total_ayat, sbqi_para,mnzil_para , dt);
             recordList.add(student);
         }
         cursor.close();
