@@ -22,11 +22,6 @@ public class AdapterRecycler extends RecyclerView.Adapter<AdapterRecycler.MyView
         this.data = data;
         this.c=c;
     }
-//    public void SetFilterList(ArrayList<Student>filterList)
-//    {
-//        this.data=filterList;
-//        notifyDataSetChanged();
-//    }
 
     @NonNull
     @Override

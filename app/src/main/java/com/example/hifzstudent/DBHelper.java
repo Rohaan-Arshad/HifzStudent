@@ -68,7 +68,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public int insertStudent(Student student, Record record) {
+    public int insertStudent_tab(Student student) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values1 = new ContentValues();
@@ -79,24 +79,14 @@ public class DBHelper extends SQLiteOpenHelper {
 
         long result1 = db.insert(TABLE_NAME, null, values1);
 
-        ContentValues values2 = new ContentValues();
-        values2.put(COLUMN_ROLLNO, student.getRollNo());
-        values2.put(COLUMN_SABAQ_SURAH, record.getSabaq_surah());
-        values2.put(COLUMN_SABAQ_TOTAL_AYAT, record.getSabaq_ayat());
-        values2.put(COLUMN_PARA_SABAQ, record.getSabaq_parah());
-        values2.put(COLUMN_SABQI_PARAH, record.getSabqi_parah());
-        values2.put(COLUMN_MANZIL_PARAH, record.getManzil_parah());
-        values2.put(COLUMN_DATE, record.getDate());
-
-        long result2 = db.insert(TABLE_NAME1, null, values2);
-
         db.close();
-        if (result1 == -1 || result2 == -1) {
+        if (result1 == -1 ) {
             return -1;
         } else {
             return 1;
         }
     }
+
     public boolean isIdExists(String rollNo) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE_NAME + " WHERE " + COLUMN_ROLLNO + " = ?";

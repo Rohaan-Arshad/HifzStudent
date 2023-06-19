@@ -15,24 +15,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button add, view,git;
+        Button add, view, git, rec;
 
-        add= findViewById(R.id.button);
-        view= findViewById(R.id.button2);
-        git= findViewById(R.id.button3);
+        add = findViewById(R.id.button);
+        view = findViewById(R.id.button2);
+        git = findViewById(R.id.button3);
+        rec = findViewById(R.id.button5);
 
-        // write
-        Intent i = new Intent(this,MainActivity2.class);
-
+        // Move to Activity 2
+        Intent activity2Intent = new Intent(this, MainActivity2.class);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(i);
+                startActivity(activity2Intent);
             }
         });
 
-        // read
-        Intent read = new Intent(this,MainActivity3.class);
+        // Read
+        Intent read = new Intent(this, MainActivity3.class);
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,13 +41,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         String websiteUrl = "https://github.com/Rohaan-Arshad/HifzStudent";
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(websiteUrl));
-        //  git code
+        Intent gitIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(websiteUrl));
+
+        // GitHub button
         git.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(intent);
+                startActivity(gitIntent);
             }
         });
+
+        // Move to Activity 5
+        Intent activity5Intent = new Intent(this, MainActivity5.class);
+        rec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(activity5Intent);
+            }
+        });
+
     }
 }
