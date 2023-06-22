@@ -65,6 +65,7 @@ public class MainActivity3 extends AppCompatActivity {
             }
         }
         if (filteredList.isEmpty()) {
+            ad.setFilterList(filteredList);
             Toast.makeText(this, "No data Found!", Toast.LENGTH_SHORT).show();
         } else {
             ad.setFilterList(filteredList);

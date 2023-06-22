@@ -1,5 +1,6 @@
 package com.example.hifzstudent;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -39,22 +40,36 @@ public class MainActivity5 extends AppCompatActivity {
                         TextUtils.isEmpty(sabqi_parah.getText().toString()) ||
                         TextUtils.isEmpty(manzil_parah.getText().toString()) ||TextUtils.isEmpty(date.getText().toString())
                 ) {
-                    Toast.makeText(MainActivity5.this, "Enter all fields!", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity5.this);
+                    builder.setTitle("Error");
+                    builder.setMessage("Enter all fields!");
+                    builder.setPositiveButton("OK", null);
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
                 } else {
                     DBHelper dt = new DBHelper(MainActivity5.this);
 
-                    //Student st = new Student(roll.getText().toString(), name.getText().toString(), Integer.parseInt(age.getText().toString()), cla.getText().toString());
                     Record re = new Record(roll.getText().toString(), sabaq_surah.getText().toString(), Integer.parseInt(sabaq_parah.getText().toString()), sabaq_ayat.getText().toString(), Integer.parseInt(sabqi_parah.getText().toString()), Integer.parseInt(manzil_parah.getText().toString()), date.getText().toString());
 
                     if (dt.isIdExists(roll.getText().toString())) {
                         int i = dt.insertRecord_ID(re);
                         if (i == 1) {
-                            Toast.makeText(MainActivity5.this, "Daily task added !", Toast.LENGTH_SHORT).show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity5.this);
+                            builder.setTitle("Success");
+                            builder.setMessage("Daily task added!");
+                            builder.setPositiveButton("OK", null);
+                            AlertDialog alertDialog = builder.create();
+                            alertDialog.show();
                         }
-
                     } else {
-                        Toast.makeText(MainActivity5.this, "Please Add Student !", Toast.LENGTH_SHORT).show();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity5.this);
+                        builder.setTitle("Error");
+                        builder.setMessage("Please Add Student!");
+                        builder.setPositiveButton("OK", null);
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
                     }
+
                 }
             }
         });

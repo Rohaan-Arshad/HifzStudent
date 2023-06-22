@@ -140,7 +140,7 @@
             android:layout_marginTop="15dp"
             android:ems="10"
             android:background="@drawable/des"
-            android:hint="Enter Date (15/10/2023)"
+            android:hint="Enter Date (01/01/2000)"
             android:padding="4sp"
             android:gravity="start|top"
             android:inputType="textMultiLine"

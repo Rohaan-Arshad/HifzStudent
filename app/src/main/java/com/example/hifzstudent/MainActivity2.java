@@ -1,5 +1,6 @@
 package com.example.hifzstudent;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -28,28 +29,66 @@ public class MainActivity2 extends AppCompatActivity {
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
+//            public void onClick(View view) {
+//                if (TextUtils.isEmpty(roll.getText().toString()) ||
+//                        TextUtils.isEmpty(name.getText().toString()) ||
+//                        TextUtils.isEmpty(age.getText().toString()) ||
+//                        TextUtils.isEmpty(cla.getText().toString())
+//                       ) {
+//                    Toast.makeText(MainActivity2.this, "Enter all fields!", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    DBHelper dt = new DBHelper(MainActivity2.this);
+//
+//                    Student st = new Student(roll.getText().toString(), name.getText().toString(), Integer.parseInt(age.getText().toString()), cla.getText().toString());
+//
+//                    if (dt.isIdExists(roll.getText().toString())) {
+//                        Toast.makeText(MainActivity2.this, "ID already EXsists", Toast.LENGTH_SHORT).show();
+//                    } else {
+//                        int i = dt.insertStudent_tab(st);
+//                        if (i == 1) {
+//                            Toast.makeText(MainActivity2.this, "Student Inserted!", Toast.LENGTH_SHORT).show();
+//                        }
+//                    }
+//                }
+//            }
             public void onClick(View view) {
                 if (TextUtils.isEmpty(roll.getText().toString()) ||
                         TextUtils.isEmpty(name.getText().toString()) ||
                         TextUtils.isEmpty(age.getText().toString()) ||
                         TextUtils.isEmpty(cla.getText().toString())
-                       ) {
-                    Toast.makeText(MainActivity2.this, "Enter all fields!", Toast.LENGTH_SHORT).show();
+                ) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
+                    builder.setTitle("Error");
+                    builder.setMessage("Enter all fields!");
+                    builder.setPositiveButton("OK", null);
+                    AlertDialog alertDialog = builder.create();
+                    alertDialog.show();
                 } else {
                     DBHelper dt = new DBHelper(MainActivity2.this);
 
                     Student st = new Student(roll.getText().toString(), name.getText().toString(), Integer.parseInt(age.getText().toString()), cla.getText().toString());
 
                     if (dt.isIdExists(roll.getText().toString())) {
-                        Toast.makeText(MainActivity2.this, "ID already EXsists", Toast.LENGTH_SHORT).show();
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
+                        builder.setTitle("Error");
+                        builder.setMessage("ID already exists!");
+                        builder.setPositiveButton("OK", null);
+                        AlertDialog alertDialog = builder.create();
+                        alertDialog.show();
                     } else {
                         int i = dt.insertStudent_tab(st);
                         if (i == 1) {
-                            Toast.makeText(MainActivity2.this, "Student Inserted!", Toast.LENGTH_SHORT).show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
+                            builder.setTitle("Success");
+                            builder.setMessage("Student Inserted!");
+                            builder.setPositiveButton("OK", null);
+                            AlertDialog alertDialog = builder.create();
+                            alertDialog.show();
                         }
                     }
                 }
             }
+
         });
 
     }
